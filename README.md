@@ -1,7 +1,7 @@
-# bookish-fiesta
+# README for bookish-fiesta
 The Readme file indicates how to use these scripts
 
-git add -A 
+# git add -A 
 #< adds all the additional files and changes you generated 
 # git commit -m "message" [file] 
 #< commits the file you indicate with the "message" you write
