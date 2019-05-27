@@ -1,0 +1,159 @@
+
+##############  A NEURON Programming Tutorial - Part A
+### Introduction
+
+# Start NEURON by typing:
+
+nrngui
+
+oc>
+
+create soma
+# default properties (the number of segments in the section [1], the diameter [500 µm], the length [100 µm], the specific membrane capacitance [1 µF/cm2] and the cytoplasmic resistivity [35.4 ohm cm]). 
+# change parameters such as the axial resistance (Ra), which in the rat subthalamic nucleus has a high value of 123 ohm-cm.
+# section is broken into nseg compartments of equal length (L/nseg) - called segments, and that NEURON will compute the time course of these variables at the centre of each compartment. These compartments are called segments. If we assume that the density of transmembrane current is reasonably uniform over the surface of the soma, a single point will be sufficient, and we can assign a value of 1 to nseg.
+
+soma.nseg = 1
+soma.diam = 18.8
+soma.L = 18.8
+soma.Ra = 123.0
+
+print soma.diam
+
+# We can group multiple properties within braces:
+
+soma {
+    nseg = 1
+    diam = 18.8
+    L = 18.8
+    Ra = 123.0
+}
+
+access soma
+
+create soma
+access soma
+
+soma nseg = 1
+soma diam = 18.8
+soma L = 18.8
+soma Ra = 123.0
+
+# Inserting membrane properties
+
+insert hh
+
+
+gnabar_hh: The maximum specific sodium channel conductance [Default value = 0.120 S/cm2]
+gkbar_hh: The maximum specific potassium channel conductance [Default value = 0.036 S/cm2]
+gl_hh: The maximum specific leakage conductance [Default value = 0.0003 S/cm2]
+ena: The reversal potential for the sodium channel [Default value = 50 mV]
+ek: The reversal potential for the potassium channel [Default value = -77 mV]
+el_hh: The reversal potential for the leakage channel [Default value = -54.3 mV]
+m_hh: The sodium activation state variable
+h_hh: The sodium inactivation state variable
+n_hh: The potassium activation state variable
+ina: The sodium current
+ik: The potassium current
+
+#To display all of the properties and their current values in a particular section, you can call the psection function. To see the properties of the default section:
+
+psection()
+soma psection()
+
+or to list the properties of all sections in the model:
+
+forall psection()
+
+For our model, we can use the default values for the other properties. Thus, our program looks like:
+
+create soma
+access soma
+
+soma nseg = 1
+soma diam = 18.8
+soma L = 18.8
+soma Ra = 123.0
+
+soma insert hh
+
+
+objectvar stim
+
+
+stim = new IClamp(0.5)
+
+or with the section name:
+
+soma stim = new IClamp(0.5)
+
+
+IClamp:
+
+    del: The delay until the onset of the stimulus (in ms)
+    dur: The duration of the stimulus (in ms)
+    amp: The amplitude of the stimulus (in nA)
+
+
+stim.del = 100
+stim.dur = 100
+stim.amp = 0.1
+
+Running a simulation
+
+load_file("nrngui.hoc")
+
+print soma.v
+
+or just:
+
+print v
+
+
+
+tstop = 300
+run()
+
+
+Neuron Run Control
+
+
+
+load_file("nrngui.hoc") 
+
+create soma
+access soma
+
+soma nseg = 1
+soma diam = 18.8
+soma L = 18.8
+soma Ra = 123.0
+
+soma insert hh
+
+objectvar stim
+soma stim = new IClamp(0.5)
+
+stim.del = 100
+stim.dur = 100
+stim.amp = 0.1
+
+tstop = 300
+
+
+nrngui sthA.hoc 
+
+et the latest development code for NEURON:
+
+cd ~/installed/neuron/repos
+git clone https://github.com/nrnhines/nrn
+cd nrn
+./build.sh
+./configure --prefix=/home/yourname/bin/nrn --with-iv=/home/yourname/bin/iv --with-nrnpython=/usr/bin/python
+make
+make install
+
+cd src/nrnpython
+sudo python setup.py install
+
+At end of setup.py execution, reports 
