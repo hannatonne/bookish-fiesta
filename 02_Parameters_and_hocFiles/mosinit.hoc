@@ -1,0 +1,7 @@
+
+//load_file("stdgui.hoc")
+//Odor_U = xred("reading input from stdin", '...txt')
+load_file("nrngui.hoc")
+load_file("OBNet.hoc")
+
+

@@ -1,0 +1,14 @@
+while(odor_u_var<=3){
+  print odor_u_var
+  print "\n"
+  seedU_var = 77
+  Km2p_var = 0.4  
+  odor_u_var = odor_u_var+0.5
+}
+
+
+objref f1
+f1 = new File()
+f1.wopen("Parameter.hoc")
+f1.printf("seedU_var=%g\n Km2p_var=%g\n odor_u_var=%g", seedU_var77, Km2p_var, odor_u_var)
+f1.close()

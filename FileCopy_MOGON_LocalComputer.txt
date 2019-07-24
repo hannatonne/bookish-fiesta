@@ -1,0 +1,21 @@
+#########################################################
+# How to copy files in between MOGON and Local Computer #
+#########################################################
+
+# written by Johanna Meichsner
+# Date: 24.07.2019
+
+#########################################################
+# 1. copy from Desktop to MOGON 
+
+scp ~/Dokumente/03_OB_Bioinfo_Projects/bookish-fiesta/Parameter.hoc jmeichsn@miil01.zdv.uni-mainz.de:/home/jmeichsn/OBGAMMA/Parameter.hoc
+
+
+#########################################################
+# 2. copy from MOGON to Desktop
+
+scp jmeichsn@miil01.zdv.uni-mainz.de:/home/jmeichsn/OBGAMMA/20190724_NEURON_CKAMPko_jobscript.sh  ~/Dokumente/03_OB_Bioinfo_Projects/bookish-fiesta/20190724_NEURON_CKAMPko_jobscript.sh 
+
+scp -r jmeichsn@miil01.zdv.uni-mainz.de:/home/jmeichsn/OBGAMMA/data-seedU90*  ~/Dokumente/03_OB_Bioinfo_Projects/13_MOGON-data/
+
+#########################################################
