@@ -6,12 +6,12 @@
 # The walltime is defined as 5 hours - for test reasons.  
 #-----------------------------------------------------------------
  
-#SBATCH -J input              # Job name
-#SBATCH -o input.%j.out       # Specify stdout output file (%j expands to jobId)
+#SBATCH -J inputCKAMPko              # Job name
+#SBATCH -o inputCKAMPko.%j.out       # Specify stdout output file (%j expands to jobId)
 #SBATCH -p smp	 	        #  "smp"-Partition on MOGON2
 #SBATCH -N 1                    # Total number of nodes requested (64 cores/node)
 #SBATCH -n 1	                # Total number of tasks
-#SBATCH -t 5:00:00              # Run time (hh:mm:ss) - 0.5 hours
+#SBATCH -t 15:00:00              # Run time (hh:mm:ss) - 0.5 hours
 #SBATCH --mem=2G		# reserve enough memory # start with 2G 
  
 #SBATCH -A m2_jgu-ob            # Specify allocation to charge against

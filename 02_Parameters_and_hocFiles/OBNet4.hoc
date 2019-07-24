@@ -24,7 +24,7 @@ secondorder  = 2  // Crank-Nicholson integration method
 
 
 xpanel("Auto launch menu")
-  xbutton("Default run 1100ms ", "default_run()")
+  xbutton("Default run 1500ms ", "default_run()")
   xbutton("Short demo 30 ms","demo_run()")
 xpanel()
 
@@ -49,7 +49,7 @@ proc demo_run() {
 
 proc default_run() {
   
-  tstop   = 1500    // Total simulation time: 3 sec
+  tstop   = 1500    // Total simulation time: 1.5 sec
 //  Fig_MC() 
   NetStim[0].seed(NSSEED)
   run()
@@ -58,7 +58,7 @@ proc default_run() {
 }
 
 
-Odor_U = 2.0
+Odor_U = 0.2
 Km2p = 0.4
 seedU = 80
 Wm2p = 1   // MC to PG   // CHANGED  1 (default) // to 0.5
@@ -76,8 +76,8 @@ load_file("Figure.hoc")
 load_file("SaveData.hoc")
 //demo_run()
 
-while(seedU<=85.0){
-  Odor_U = 2.0
+while(seedU<=90){
+  Odor_U = 0.2
   while(Odor_U<=2.2){
     Odor_U = Odor_U + 0.2
     load_file("Parameter.hoc")
